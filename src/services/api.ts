@@ -8,7 +8,7 @@ export async function analyzeText(text: string, useMock: boolean = true): Promis
   const response = await fetch(`${BASE_URL}/analysis/sample?mock=${useMock}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ content: text }),
+    body: JSON.stringify({ text: text.trim() }),
   });
 
   if (!response.ok) {
